@@ -1,3 +1,7 @@
+body>div{
+  width: 600px;
+}
+
 input{
   float:left; /* otherwise the buttons have some space between them */
 }
@@ -13,7 +17,7 @@ div.numberFields{
 
 .numberFields input{
   box-sizing: border-box;
-  width: 33%;
+  width: 33.333%;
 }
 
 .numberFields input:last-child{
