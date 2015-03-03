@@ -1,3 +1,7 @@
+input{
+  float:left; /* otherwise the buttons have some space between them */
+}
+
 .header input{
   width: 100%;
 }
@@ -7,8 +11,13 @@ div.numberFields{
   float:left;
 }
 
-div.sum{
-  clear:both;
+.numberFields input{
+  box-sizing: border-box;
+  width: 33%;
+}
+
+.numberFields input:last-child{
+  width: 100%;
 }
 
 div.operations{
@@ -20,13 +29,8 @@ div.operations{
   width: 100%;
 }
 
-.numberFields input{
-  box-sizing: border-box;
-  width: 33%;
-}
-
-.numberFields input:last-child{
-  width: 100%;
+div.sum{
+  clear:both;
 }
 
 .sum input{
