@@ -1,13 +1,25 @@
 body>div{
-  width: 600px;
+  width: 20em;
+  border: 1px solid black;
+  padding: .5em;
+}
+
+div>div{
+  padding-top: .2em;
 }
 
 input{
   float:left; /* otherwise the buttons have some space between them */
+  border: 1px solid black; 
+  height: 2.5em;
 }
 
 .header input{
+  background-color: #EBEBE4;
   width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  color: #6A879A
 }
 
 div.numberFields{
@@ -16,8 +28,9 @@ div.numberFields{
 }
 
 .numberFields input{
-  box-sizing: border-box;
+/*   box-sizing: border-box; */
   width: 33.333%;
+  background-color: #96ab98;
 }
 
 .numberFields input:last-child{
@@ -25,12 +38,14 @@ div.numberFields{
 }
 
 div.operations{
-  width:10%;
+  padding-left:.2em;
+  width:9%;
   float:left;
 }
 
-.operations input{
+.operations input, .sum input{
   width: 100%;
+  background-color: #AB96A9;
 }
 
 div.sum{
@@ -38,5 +53,5 @@ div.sum{
 }
 
 .sum input{
-  width: 100%;
+  float: none;
 }
