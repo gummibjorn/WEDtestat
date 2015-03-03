@@ -1,5 +1,5 @@
 body>div{
- width: 300px;
+ width: 350px;
 }
 
 div>div{
@@ -10,16 +10,16 @@ input{
   float:left;
   border: 1px solid black;
   height: 50px;
+  color:black;
 }
 
 .header input{
   width: 100%;
   text-align:right;
   background-color: #EBEBE4;
+  border: 2px solid black;
   box-sizing: border-box;
-}
-
-div.header{
+  padding: 3px;
 }
 
 div.numberFields{
@@ -47,6 +47,7 @@ div.operations{
 }
 
 div.sum{
+  clear:both;
 }
 
 .sum input{
