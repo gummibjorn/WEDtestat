@@ -3,5 +3,5 @@ function add(a){
 }
 
 window.onload = function(){
-document.getElementsByName("2")[0].addEventListener("mouseover", alert(2), false);
-}
+document.getElementsByClassName("numberFields")[0].children[1].addEventListener("click", add(2), false);
+};
