@@ -1,16 +1,26 @@
 var a="";
 var op="";
-var res=0;
+var res="";
 var b="";
 
 function add(event){
-    a  = a.concat(event.target.value || event.srcElement.value);	
-    document.getElementsByTagName("input")[0].value = a;
+    a  = a.concat(event.target.value);	
+    var oldvalue = document.getElementsByTagName("input")[0];
+    if(res != "" && op == ""){
+	oldvalue.value="";
+    }
+    oldvalue.value = oldvalue.value + a;
 }
 
 function operation(event){
-	b=a;
+	if(res != ""){
+		b=res;
+	}else{
+	        b=a;
+	}
 	op=event.target.value;
+        var oldvalue=document.getElementsByTagName("input")[0];
+	oldvalue.value = oldvalue.value + op;
 	a="";
 }
 
@@ -50,10 +60,12 @@ function calc(){
         document.getElementsByTagName("input")[0].value = res;
 	a="";
 	b="";
+	op="";
 }
 
 function init(){
   var elements = document.getElementsByTagName("input");
+  elements[0].value="";
   for(index = 2; index < elements.length-5; index++){
     elements[index].addEventListener("click", function() { add(event); }, false); 
   }
