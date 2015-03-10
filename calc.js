@@ -1,6 +1,8 @@
 var a="";
-var b="";
 var op="";
+var res=0;
+var b="";
+
 function add(event){
     a  = a.concat(event.target.value || event.srcElement.value);	
     document.getElementsByTagName("input")[0].value = a;
@@ -12,9 +14,40 @@ function operation(event){
 	a="";
 }
 
+function addition(){
+	res = parseInt(b) + parseInt(a);	
+}	
+
+
+function multiply(){
+	res = parseInt(b) * parseInt(a);	
+}	
+
+function minus(){
+	res = parseInt(b) - parseInt(a);	
+}	
+
+function divide(){
+	res = parseInt(b) / parseInt(a);	
+}	
+
+
 function calc(){
-	var res = parseInt(b) + parseInt(a);
-	console.log(res);
+	switch(op){
+	case "+":
+		addition();
+		break;
+	case "-":
+		minus();
+		break;
+	case "*":
+		multiply();
+		break;
+	case "/":
+		divide();
+		break;
+	}
+        document.getElementsByTagName("input")[0].value = res;
 	a="";
 	b="";
 }
