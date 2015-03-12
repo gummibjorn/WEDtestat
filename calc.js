@@ -1,79 +1,60 @@
-var a="";
-var op="";
-var res="";
-var b="";
+"use strict";
+var a, b, op, result;
 
-function add(event){
+function inputDigit(event){
     var digit = event.target.value;
-    a  = a.concat(digit);	
-    var oldvalue = document.getElementsByTagName("input")[0];
-    if(res != "" && op == ""){
-	oldvalue.value="";
+    var display = document.getElementsByTagName("input")[0];
+    if(op === null){
+      if(a === ""){
+        display.value = "";
+      }
+      a += digit;
+    } else {
+      b += digit;
     }
-    oldvalue.value = oldvalue.value + digit;
+    display.value = display.value + digit;
 }
 
-function operation(event){
-	if(res != ""){
-		b=res;
-	}else{
-	        b=a;
-	}
-	op=event.target.value;
-        var oldvalue=document.getElementsByTagName("input")[0];
-	oldvalue.value = oldvalue.value + op;
-	a="";
+function sum(){
+  result = op(parseInt(a),parseInt(b));
+  reset();
+  document.getElementsByTagName("input")[0].value = result;
 }
 
-function addition(){
-	res = parseInt(b) + parseInt(a);	
-}	
-
-
-function multiply(){
-	res = parseInt(b) * parseInt(a);	
-}	
-
-function minus(){
-	res = parseInt(b) - parseInt(a);	
-}	
-
-function divide(){
-	res = parseInt(b) / parseInt(a);	
-}	
-
-
-function calc(){
-	switch(op){
-	case "+":
-		addition();
-		break;
-	case "-":
-		minus();
-		break;
-	case "*":
-		multiply();
-		break;
-	case "/":
-		divide();
-		break;
-	}
-        document.getElementsByTagName("input")[0].value = res;
+function reset(){
 	a="";
 	b="";
-	op="";
+	op=null;
+  var display = document.getElementsByTagName("input")[0];
+  display.value = "0";
 }
 
 function init(){
-  var elements = document.getElementsByTagName("input");
-  elements[0].value="";
-  for(index = 2; index < elements.length-5; index++){
-    elements[index].addEventListener("click", function() { add(event); }, false); 
+  var numbers = document.getElementsByClassName("numberFields")[0].getElementsByTagName("input");
+  for(var i = 0; i < numbers.length; i++){
+    numbers[i].addEventListener("click", function() { inputDigit(event); }, false);
   }
-  for(index = 11; index < elements.length-1; index++){
-    elements[index].addEventListener("click", function() { operation(event); }, false); 
-  }	
-  elements[15].addEventListener("click", function() { calc(); }, false);
+
+  var operations = document.getElementsByClassName("operations")[0].getElementsByTagName("input");
+  operations[0].addEventListener("click", function() { op = function(a,b) { return a+b }});
+  operations[1].addEventListener("click", function() { op = function(a,b) { return a-b }});
+  operations[2].addEventListener("click", function() { op = function(a,b) { return a*b }});
+  operations[3].addEventListener("click", function() { op = function(a,b) { return a/b }});
+  for(var i = 0; i < operations.length; i++){
+    operations[i].addEventListener("click", function(event) {
+      //weiterrechnen
+      var display = document.getElementsByTagName("input")[0];
+      display.value = display.value + event.target.value;
+      if(result){
+        a = result;
+        b = "";
+      }
+
+    });
+  }
+  document.getElementsByClassName("sum")[0].getElementsByTagName("input")[0].addEventListener("click", function() { sum(); });
+
+  reset();
 }
 
 window.addEventListener('load', init); 
