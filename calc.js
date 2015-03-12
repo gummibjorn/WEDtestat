@@ -4,12 +4,13 @@ var res="";
 var b="";
 
 function add(event){
-    a  = a.concat(event.target.value);	
+    var digit = event.target.value;
+    a  = a.concat(digit);	
     var oldvalue = document.getElementsByTagName("input")[0];
     if(res != "" && op == ""){
 	oldvalue.value="";
     }
-    oldvalue.value = oldvalue.value + a;
+    oldvalue.value = oldvalue.value + digit;
 }
 
 function operation(event){
