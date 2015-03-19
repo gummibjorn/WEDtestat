@@ -29,16 +29,21 @@ function reset(){
   jQuery(".header input").val(0);
 }
 
+function plus(a,b){ return a+b; };
+function minus(a,b){ return a-b; };
+function mult(a,b){ return a*b; };
+function div(a,b){ return a/b; };
+
 function init(){
   jQuery(".numberFields").click(function(event){
     inputDigit(event);
   });
 
   jQuery('.operations').children()
-    .first().click(function(){ op = function(a,b) { return a+b; }})
-    .next().click(function() { op = function(a,b) { return a-b; }})
-    .next().click(function() { op = function(a,b) { return a*b; }})
-    .next().click(function() { op = function(a,b) { return a/b; }});
+    .first().click(function(){ op = plus; })
+    .next().click(function() { op = minus; })
+    .next().click(function() { op = mult; })
+    .next().click(function() { op = div; });
 
   jQuery('.operations').click(function(event){
     //weiterrechnen
