@@ -59,4 +59,4 @@ function init(){
   reset();
 }
 
-window.addEventListener('load', init); 
+$(document).ready(init);
