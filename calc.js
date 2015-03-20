@@ -1,4 +1,6 @@
+(function(){
 "use strict";
+
 var a, b, op, result;
 
 function inputDigit(event){
@@ -16,12 +18,6 @@ function inputDigit(event){
   display.val(display.val() + digit);
 }
 
-function sum(){
-  result = op(parseInt(a),parseInt(b));
-  reset();
-  jQuery(".header input").val(result);
-}
-
 function reset(){
 	a="";
 	b="";
@@ -29,10 +25,16 @@ function reset(){
   jQuery(".header input").val(0);
 }
 
-function plus(a,b){ return a+b; };
-function minus(a,b){ return a-b; };
-function mult(a,b){ return a*b; };
-function div(a,b){ return a/b; };
+function sum(){
+  result = op(parseInt(a, 10),parseInt(b, 10));
+  reset();
+  jQuery(".header input").val(result);
+}
+
+function plus(a,b){ return a+b; }
+function minus(a,b){ return a-b; }
+function mult(a,b){ return a*b; }
+function div(a,b){ return a/b; }
 
 function init(){
   jQuery(".numberFields").click(function(event){
@@ -59,4 +61,6 @@ function init(){
   reset();
 }
 
-$(document).ready(init);
+jQuery(document).ready(init);
+
+}());
