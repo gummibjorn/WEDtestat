@@ -1,0 +1,22 @@
+{
+  "name": "WEDtestat",
+  "version": "1.0.0",
+  "description": "A calculator, because spotlight is not hip enough",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gummibjorn/WEDtestat.git"
+  },
+  "author": "Daniel Latzer, Mario Egli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gummibjorn/WEDtestat/issues"
+  },
+  "homepage": "https://github.com/gummibjorn/WEDtestat",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
