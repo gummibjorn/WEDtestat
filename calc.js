@@ -51,7 +51,12 @@ function init(){
     //weiterrechnen
     var display = jQuery(".header input");
     display.val(display.val() + event.target.value);
-    if(result){
+    if(result && a === ""){
+      a = result;
+      b = "";
+    }
+    if(a !== "" && b !== ""){
+      result = op(parseInt(a, 10),parseInt(b, 10));
       a = result;
       b = "";
     }
